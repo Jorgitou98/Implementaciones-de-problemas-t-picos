@@ -1,0 +1,112 @@
+N = 300000
+Cantidad de objetos metidos: 221632
+Tiempo requerido = 1.442 segundos
+--------------------------
+N = 400000
+Cantidad de objetos metidos: 295608
+Tiempo requerido = 1.927 segundos
+--------------------------
+N = 500000
+Cantidad de objetos metidos: 369336
+Tiempo requerido = 2.409 segundos
+--------------------------
+N = 600000
+Cantidad de objetos metidos: 443476
+Tiempo requerido = 2.951 segundos
+--------------------------
+N = 700000
+Cantidad de objetos metidos: 517384
+Tiempo requerido = 3.239 segundos
+--------------------------
+N = 800000
+Cantidad de objetos metidos: 590817
+Tiempo requerido = 3.716 segundos
+--------------------------
+N = 900000
+Cantidad de objetos metidos: 664752
+Tiempo requerido = 4.546 segundos
+--------------------------
+N = 1000000
+Cantidad de objetos metidos: 738897
+Tiempo requerido = 4.676 segundos
+--------------------------
+N = 1100000
+Cantidad de objetos metidos: 812506
+Tiempo requerido = 5.161 segundos
+--------------------------
+N = 1200000
+Cantidad de objetos metidos: 886220
+Tiempo requerido = 5.845 segundos
+--------------------------
+N = 1300000
+Cantidad de objetos metidos: 960649
+Tiempo requerido = 6.207 segundos
+--------------------------
+N = 1400000
+Cantidad de objetos metidos: 1034003
+Tiempo requerido = 6.914 segundos
+--------------------------
+N = 1500000
+Cantidad de objetos metidos: 1108295
+Tiempo requerido = 7.574 segundos
+--------------------------
+N = 1600000
+Cantidad de objetos metidos: 1182333
+Tiempo requerido = 8.059 segundos
+--------------------------
+N = 1700000
+Cantidad de objetos metidos: 1256091
+Tiempo requerido = 8.319 segundos
+--------------------------
+N = 1800000
+Cantidad de objetos metidos: 1330207
+Tiempo requerido = 9.247 segundos
+--------------------------
+N = 1900000
+Cantidad de objetos metidos: 1402996
+Tiempo requerido = 9.649 segundos
+--------------------------
+N = 2000000
+Cantidad de objetos metidos: 1477666
+Tiempo requerido = 9.848 segundos
+--------------------------
+N = 2100000
+Cantidad de objetos metidos: 1550923
+Tiempo requerido = 10.505 segundos
+--------------------------
+N = 2200000
+Cantidad de objetos metidos: 1625059
+Tiempo requerido = 11.359 segundos
+--------------------------
+N = 2300000
+Cantidad de objetos metidos: 1699309
+Tiempo requerido = 12.188 segundos
+--------------------------
+N = 2400000
+Cantidad de objetos metidos: 1773526
+Tiempo requerido = 12.391 segundos
+--------------------------
+N = 2500000
+Cantidad de objetos metidos: 1846547
+Tiempo requerido = 12.853 segundos
+--------------------------
+N = 2600000
+Cantidad de objetos metidos: 1919983
+Tiempo requerido = 13.529 segundos
+--------------------------
+N = 2700000
+Cantidad de objetos metidos: 1994376
+Tiempo requerido = 14.311 segundos
+--------------------------
+N = 2800000
+Cantidad de objetos metidos: 2068500
+Tiempo requerido = 14.215 segundos
+--------------------------
+N = 2900000
+Cantidad de objetos metidos: 2142004
+Tiempo requerido = 14.626 segundos
+--------------------------
+N = 3000000
+Cantidad de objetos metidos: 2216212
+Tiempo requerido = 14.914 segundos
+--------------------------
