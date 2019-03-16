@@ -1,0 +1,112 @@
+N = 300
+Cantidad de objetos metidos: 231
+Tiempo requerido = 0.484 segundos
+--------------------------
+N = 400
+Cantidad de objetos metidos: 303
+Tiempo requerido = 0.847 segundos
+--------------------------
+N = 500
+Cantidad de objetos metidos: 380
+Tiempo requerido = 1.227 segundos
+--------------------------
+N = 600
+Cantidad de objetos metidos: 464
+Tiempo requerido = 1.759 segundos
+--------------------------
+N = 700
+Cantidad de objetos metidos: 520
+Tiempo requerido = 2.372 segundos
+--------------------------
+N = 800
+Cantidad de objetos metidos: 589
+Tiempo requerido = 3.104 segundos
+--------------------------
+N = 900
+Cantidad de objetos metidos: 684
+Tiempo requerido = 3.913 segundos
+--------------------------
+N = 1000
+Cantidad de objetos metidos: 754
+Tiempo requerido = 4.83 segundos
+--------------------------
+N = 1100
+Cantidad de objetos metidos: 841
+Tiempo requerido = 5.872 segundos
+--------------------------
+N = 1200
+Cantidad de objetos metidos: 926
+Tiempo requerido = 6.964 segundos
+--------------------------
+N = 1300
+Cantidad de objetos metidos: 981
+Tiempo requerido = 8.166 segundos
+--------------------------
+N = 1400
+Cantidad de objetos metidos: 1077
+Tiempo requerido = 9.467 segundos
+--------------------------
+N = 1500
+Cantidad de objetos metidos: 1130
+Tiempo requerido = 10.897 segundos
+--------------------------
+N = 1600
+Cantidad de objetos metidos: 1188
+Tiempo requerido = 12.44 segundos
+--------------------------
+N = 1700
+Cantidad de objetos metidos: 1296
+Tiempo requerido = 14.013 segundos
+--------------------------
+N = 1800
+Cantidad de objetos metidos: 1376
+Tiempo requerido = 15.655 segundos
+--------------------------
+N = 1900
+Cantidad de objetos metidos: 1448
+Tiempo requerido = 17.438 segundos
+--------------------------
+N = 2000
+Cantidad de objetos metidos: 1531
+Tiempo requerido = 19.396 segundos
+--------------------------
+N = 2100
+Cantidad de objetos metidos: 1603
+Tiempo requerido = 21.47 segundos
+--------------------------
+N = 2200
+Cantidad de objetos metidos: 1669
+Tiempo requerido = 23.399 segundos
+--------------------------
+N = 2300
+Cantidad de objetos metidos: 1754
+Tiempo requerido = 25.629 segundos
+--------------------------
+N = 2400
+Cantidad de objetos metidos: 1836
+Tiempo requerido = 27.883 segundos
+--------------------------
+N = 2500
+Cantidad de objetos metidos: 1871
+Tiempo requerido = 30.443 segundos
+--------------------------
+N = 2600
+Cantidad de objetos metidos: 2016
+Tiempo requerido = 32.65 segundos
+--------------------------
+N = 2700
+Cantidad de objetos metidos: 2071
+Tiempo requerido = 35.238 segundos
+--------------------------
+N = 2800
+Cantidad de objetos metidos: 2144
+Tiempo requerido = 37.976 segundos
+--------------------------
+N = 2900
+Cantidad de objetos metidos: 2208
+Tiempo requerido = 40.637 segundos
+--------------------------
+N = 3000
+Cantidad de objetos metidos: 2295
+Tiempo requerido = 43.63 segundos
+--------------------------
