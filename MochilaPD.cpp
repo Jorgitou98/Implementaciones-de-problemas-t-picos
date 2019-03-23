@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <stdio.h>
+#include "VorazMochila.h"
 #include "Matriz.h"
 #include <stdlib.h> 
 #include <ctime>
@@ -10,13 +11,14 @@
 #include <fstream>
 using namespace std;
 
-size_t const ITERACIONES_MIN = 300;
-size_t const ITERACIONES_MAX = 3000;
-size_t const PASO = 100;
+size_t const ITERACIONES_MIN = 300000;
+size_t const ITERACIONES_MAX = 500000;
+size_t const PASO = 10000;
 double const RANDOM_MIN = 1.0;
 double const RANDOM_MAX = 5.0;
 size_t const RANDOM_NAT_MIN = 1;
 size_t const RANDOM_NAT_MAX = 5;
+size_t const TAM_MOCHILA = 1;
 
 struct tObjeto {
 	size_t peso;
@@ -50,11 +52,14 @@ void mochilaPD(vector<tObjeto> & objetos, size_t M,
 		}
 }
 
-void pruebaAleatorios(size_t N, ofstream &salida, ofstream &salidaGraficarX, ofstream &salidaGraficarY) {
+void pruebaAleatorios(size_t N, ofstream &salida, ofstream &salidaGraficarX, ofstream &salidaGraficarY, bool mochilaFija) {
 	srand(time(NULL));
-	size_t peso;
+	size_t peso, tam_mochila;
 	double valor;
-	size_t tam_mochila = 2 * N;
+
+	if (mochilaFija) tam_mochila = TAM_MOCHILA;
+	else tam_mochila = 2 * N;
+
 	size_t objetosMetidos = 0;
 	vector<tObjeto> objetos;
 	for (size_t i = 0; i < N; ++i) {
@@ -77,20 +82,88 @@ void pruebaAleatorios(size_t N, ofstream &salida, ofstream &salidaGraficarX, ofs
 	salidaGraficarY << setprecision(3) << tiempo << '\n';
 }
 
+
+void pruebaMochilasFijasVorazYPD(size_t N, ofstream &salida, ofstream &salidaGraficarX, ofstream &salidaGraficarY, ofstream &salidaVoraz, ofstream &salidaGraficarVorazX, ofstream &salidaGraficarVorazY) {
+	srand(time(NULL));
+	size_t peso;
+	double valor;
+
+
+	size_t objetosMetidos = 0;
+	vector<tObjeto> objetos;
+	vector<Objeto> objetosVoraz;
+	for (size_t i = 0; i < N; ++i) {
+		peso = RANDOM_NAT_MIN + rand() % (RANDOM_NAT_MAX + 1 - RANDOM_NAT_MIN);
+		valor = (RANDOM_MAX - RANDOM_MIN) * ((double)rand() / (double)RAND_MAX) + RANDOM_MIN;
+		objetos.push_back({ peso, valor });
+		objetosVoraz.push_back({ (double)peso, (double)valor, i });
+	}
+	vector<bool> sol(objetos.size() + 1, false);
+	vector<double> solVoraz(objetosVoraz.size(), 0);
+	double valorOptimo;
+	int t0 = clock();
+	mochilaPD(objetos, TAM_MOCHILA, sol, valor, objetosMetidos);
+	int t1 = clock();
+
+	double tiempo1 = double(t1 - t0) / CLOCKS_PER_SEC;
+	salida << "N = " << N << '\n';
+	salida << "Cantidad de objetos metidos: " << objetosMetidos << '\n';
+	salida << "Tiempo requerido = " << tiempo1 << " segundos" << '\n';
+	salida << "--------------------------\n";
+	salidaGraficarX << N << '\n';
+	salidaGraficarY << fixed;
+	salidaGraficarY << setprecision(3) << tiempo1 << '\n';
+
+	int t2 = clock();
+	mochilaVoraz(objetosVoraz, TAM_MOCHILA, solVoraz, valor, objetosMetidos);
+	int t3 = clock();
+
+	double tiempo2 = double(t3 - t2) / CLOCKS_PER_SEC;
+	salidaVoraz << "N = " << N << '\n';
+	salidaVoraz << "Cantidad de objetos metidos: " << objetosMetidos << '\n';
+	salidaVoraz << "Tiempo requerido = " << tiempo2 << " segundos" << '\n';
+	salidaVoraz << "--------------------------\n";
+	salidaGraficarVorazX << N << '\n';
+	salidaGraficarVorazY << fixed;
+	salidaGraficarVorazY << setprecision(3) << tiempo2 << '\n';
+	cout << N << " " << tiempo1 << " " << tiempo2 << '\n';
+}
+
+
 void pruebaAleatoriosBucle() {
 	ofstream salida("SalidaAleatoriosPD.txt");
 	ofstream salidaGraficarX("SalidaAleatoriosXPD.txt");
 	ofstream salidaGraficarY("SalidaAleatoriosYPD.txt");
 	for (size_t i = ITERACIONES_MIN; i <= ITERACIONES_MAX; i = i + PASO)
-		pruebaAleatorios(i, salida, salidaGraficarX, salidaGraficarY);
+		pruebaAleatorios(i, salida, salidaGraficarX, salidaGraficarY, false);
 	salida.close();
 	salidaGraficarX.close();
 	salidaGraficarY.close();
 }
 
 
+void pruebaTamMochilaFijoBucle() {
+	ofstream salida("SalidaMochilaFijaPD.txt");
+	ofstream salidaGraficarX("SalidaMochilaFijaXPD.txt");
+	ofstream salidaGraficarY("SalidaMochilaFijaYPD.txt");
+	ofstream salidaVoraz("SalidaMochilaFijaVoraz.txt");
+	ofstream salidaGraficarVorazX("SalidaMochilaFijaVorazX.txt");
+	ofstream salidaGraficarVorazY("SalidaMochilaFijaVorazY.txt");
+	for (size_t i = ITERACIONES_MIN; i <= ITERACIONES_MAX; i = i + PASO) {
+		pruebaMochilasFijasVorazYPD(i, salida, salidaGraficarX, salidaGraficarY, salidaVoraz, salidaGraficarVorazX, salidaGraficarVorazY);
+	}
+	salida.close();
+	salidaGraficarX.close();
+	salidaGraficarY.close();
+	salidaVoraz.close();
+	salidaGraficarVorazX.close();
+	salidaGraficarVorazY.close();
+}
+
+
+
 int main() {
-	pruebaAleatoriosBucle();
+	pruebaTamMochilaFijoBucle();
 	system("pause");
 	return 0;
 }
