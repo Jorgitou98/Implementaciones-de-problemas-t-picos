@@ -12,7 +12,7 @@
 #include <fstream>
 using namespace std;
 
-size_t const ITERACIONES_MIN = 2;
+size_t const ITERACIONES_MIN = 20;
 size_t const ITERACIONES_MAX = 27;
 size_t const PASO = 1;
 float const RANDOM_MIN = 1.0;
