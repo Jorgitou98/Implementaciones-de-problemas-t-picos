@@ -89,11 +89,6 @@ void VueltaAtrasOptimalidad(vector<int>const & objetos, DatosProblema const& dp,
 		sol = valor_candidato + dp.valores[objetos[indiceElemento]];
 	}
 
-	/*	Si el elemento actual entra, lo agrego y busco las soluciones que lo contengan
-		Ademas si el elemento del proximo indiceElemento entra
-		vemos las soluciones de ver ese indiceElemento. Si no, al estar ordenado 'objetos'
-		En orden creciente por tamaño, las demas soluciones tampoco entran por lo que los ignoramos. Estaremos podando */
-
 	if (indiceElemento + 1 < objetos.size()) {
 		// Marcado y desmarcado
 		if (peso_candidato + dp.pesos[objetos[indiceElemento]] <= dp.tam_Mochila) {
@@ -105,16 +100,34 @@ void VueltaAtrasOptimalidad(vector<int>const & objetos, DatosProblema const& dp,
 			peso_candidato -= dp.pesos[objetos[indiceElemento]];
 		}
 
-		/* Sin considerar el objeto actual, si el elemento del proximo indiceElemento entra
-		   Vemos las soluciones de ver ese indiceElemento. Si no, al estar ordenado objetos
-		   en orden creciente por tamaño, las demas soluciones tampoco entran
-		   Por lo que los ignoramos */
-
 		if (cotaSupOpt(objetos, dp, valor_candidato, peso_candidato, indiceElemento +1) > sol)
 			VueltaAtrasFactibilidad(objetos, dp, valor_candidato, peso_candidato, sol, indiceElemento + 1, nodos);
 	}
 }
 
+
+void VueltaAtrasAmbasPodas(vector<int>const & objetos, DatosProblema const& dp, float valor_candidato, float peso_candidato, float& sol, int indiceElemento, size_t & nodos) {
+
+	nodos++;
+
+	if (valor_candidato + dp.valores[objetos[indiceElemento]] > sol && peso_candidato + dp.pesos[objetos[indiceElemento]] <= dp.tam_Mochila) {
+		sol = valor_candidato + dp.valores[objetos[indiceElemento]];
+	}
+
+	if (indiceElemento + 1 < objetos.size()) {
+		// Marcado y desmarcado
+		if (peso_candidato + dp.pesos[objetos[indiceElemento]] <= dp.tam_Mochila) {
+			valor_candidato += dp.valores[objetos[indiceElemento]];
+			peso_candidato += dp.pesos[objetos[indiceElemento]];
+			VueltaAtrasFactibilidad(objetos, dp, valor_candidato, peso_candidato, sol, indiceElemento + 1, nodos);
+			valor_candidato -= dp.valores[objetos[indiceElemento]];
+			peso_candidato -= dp.pesos[objetos[indiceElemento]];
+		}
+
+		if (cotaSupOpt(objetos, dp, valor_candidato, peso_candidato, indiceElemento + 1) > sol)
+			VueltaAtrasFactibilidad(objetos, dp, valor_candidato, peso_candidato, sol, indiceElemento + 1, nodos);
+	}
+}
 
 
 void pruebaAleatorios(size_t N, ofstream &salida, ofstream &salidaGraficarX, ofstream &salidaGraficarY, poda p) {
@@ -150,6 +163,10 @@ void pruebaAleatorios(size_t N, ofstream &salida, ofstream &salidaGraficarX, ofs
 		VueltaAtrasOptimalidad(v_indices, datosProblema, 0, 0, valorOptimo, 0, nodos);
 		break;
 	case AMBAS:
+		sort(v_indices.begin(), v_indices.end(), [datosProblema](int const & a, const int& b) {
+			return ((datosProblema.valores[a] / datosProblema.pesos[a]) >= (datosProblema.valores[b] / datosProblema.pesos[b]));
+		});
+		VueltaAtrasAmbasPodas(v_indices, datosProblema, 0, 0, valorOptimo, 0, nodos);
 		break;
 	default:
 		break;
@@ -231,21 +248,21 @@ void pruebaAleatoriosBucleOpt() {
 	salidaGraficarY.close();
 }
 
+void pruebaAleatoriosBucleAmbas() {
+	ofstream salida("SalidaAleatoriosVAtrasAmbas.txt");
+	ofstream salidaGraficarX("SalidaAleatoriosXVAtrasAmbas.txt");
+	ofstream salidaGraficarY("SalidaAleatoriosYVAtrasAmbas.txt");
+	for (size_t i = ITERACIONES_MIN; i <= ITERACIONES_MAX; i = i + PASO)
+		pruebaAleatorios(i, salida, salidaGraficarX, salidaGraficarY, AMBAS);
+	salida.close();
+	salidaGraficarX.close();
+	salidaGraficarY.close();
+}
+
 
 
 int main() {
-	/*
-	vector<int> v_indices = { 0,1,2,3,4 };
-	DatosProblema objetos;
-	objetos.tam_Mochila = 25;
-	objetos.pesos = { 10,15,5,10,5 };
-	objetos.valores = { 5,4,13,8,8 }
-	float valorOptimo;
-	size_t nodos = 0;
-	VueltaAtrasFactibilidad(v_indices, objetos, 0, 0, valorOptimo, 0, nodos);
-	cout << valorOptimo;
-	*/
-	pruebaAleatoriosBucleOpt();
+	pruebaAleatoriosBucleAmbas();
 	system("pause");
 	return 0;
 }
