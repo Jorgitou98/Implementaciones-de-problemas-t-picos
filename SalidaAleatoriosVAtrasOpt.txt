@@ -1,0 +1,112 @@
+N = 300
+Nodos visitados 7480
+Tiempo requerido = 0.049 segundos
+--------------------------
+N = 400
+Nodos visitados 4614
+Tiempo requerido = 0.054 segundos
+--------------------------
+N = 500
+Nodos visitados 2882
+Tiempo requerido = 0.076 segundos
+--------------------------
+N = 600
+Nodos visitados 2821
+Tiempo requerido = 0.088 segundos
+--------------------------
+N = 700
+Nodos visitados 5407
+Tiempo requerido = 0.144 segundos
+--------------------------
+N = 800
+Nodos visitados 13905
+Tiempo requerido = 0.185 segundos
+--------------------------
+N = 900
+Nodos visitados 4081
+Tiempo requerido = 0.199 segundos
+--------------------------
+N = 1000
+Nodos visitados 8250
+Tiempo requerido = 0.227 segundos
+--------------------------
+N = 1100
+Nodos visitados 28162
+Tiempo requerido = 0.334 segundos
+--------------------------
+N = 1200
+Nodos visitados 12647
+Tiempo requerido = 0.308 segundos
+--------------------------
+N = 1300
+Nodos visitados 20130
+Tiempo requerido = 0.371 segundos
+--------------------------
+N = 1400
+Nodos visitados 26006
+Tiempo requerido = 0.438 segundos
+--------------------------
+N = 1500
+Nodos visitados 20659
+Tiempo requerido = 0.462 segundos
+--------------------------
+N = 1600
+Nodos visitados 40051
+Tiempo requerido = 0.57 segundos
+--------------------------
+N = 1700
+Nodos visitados 7096
+Tiempo requerido = 0.521 segundos
+--------------------------
+N = 1800
+Nodos visitados 51640
+Tiempo requerido = 0.74 segundos
+--------------------------
+N = 1900
+Nodos visitados 41554
+Tiempo requerido = 0.744 segundos
+--------------------------
+N = 2000
+Nodos visitados 43730
+Tiempo requerido = 0.817 segundos
+--------------------------
+N = 2100
+Nodos visitados 17814
+Tiempo requerido = 0.803 segundos
+--------------------------
+N = 2200
+Nodos visitados 6659
+Tiempo requerido = 0.806 segundos
+--------------------------
+N = 2300
+Nodos visitados 37023
+Tiempo requerido = 0.964 segundos
+--------------------------
+N = 2400
+Nodos visitados 31056
+Tiempo requerido = 1.067 segundos
+--------------------------
+N = 2500
+Nodos visitados 12271
+Tiempo requerido = 1.084 segundos
+--------------------------
+N = 2600
+Nodos visitados 74106
+Tiempo requerido = 1.332 segundos
+--------------------------
+N = 2700
+Nodos visitados 23058
+Tiempo requerido = 1.26 segundos
+--------------------------
+N = 2800
+Nodos visitados 54182
+Tiempo requerido = 1.47 segundos
+--------------------------
+N = 2900
+Nodos visitados 64539
+Tiempo requerido = 1.599 segundos
+--------------------------
+N = 3000
+Nodos visitados 8312
+Tiempo requerido = 1.443 segundos
+--------------------------
